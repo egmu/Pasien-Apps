@@ -16,6 +16,7 @@ use frontend\models\ContactForm;
 use common\models\TbAdmin;
 use common\models\TbPoli;
 use common\models\TbPasien;
+
 use common\models\TbAntrianNow;
 use common\models\User;
 /**
@@ -75,27 +76,24 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $now1 = TbPoli::find();
          $now = TbAntrianNow::find();
          $poli = TbPoli::find()->count();
         $pages = new \yii\data\Pagination([
             'totalCount' => $now->count(),
-            'pageSize' => 4
+            'pageSize' => 12
         ]);
-
+        $dataNow = $now->offset($pages->offset)->limit($pages->limit)->orderBy(['id_antrian_now' => SORT_DESC])->all();
+        $dataNow1 = $now1->offset($pages->offset)->limit($pages->limit)->orderBy(['id_poli' => SORT_DESC])->all();
         // $dataNow = $now->offset($pages->offset)->limit($pages->limit)->orderBy(['locket_pendaftaran' => SORT_DESC])->all();
-         $dataPoli = $poli->limit($pages->limit)->orderBy(['id_poli' => SORT_DESC])->all();
+        
 
        
-          $Pasien = TbPasien::find()->count();
-           $Admin = TbAdmin::find()->count(); 
-           $Admin2 = User::find()->count();
-
         return $this->render('index', [
             'poli' => $poli,
-            'Pasien' => $Pasien,
-            'Admin' => $Admin,
-            'Admin2' => $Admin2,
-             'dataPoli' => $poli,
+            'dataNow' => $dataNow,
+            'dataNow1' => $dataNow1
+            
        ]);
     }
     public  $Poli;

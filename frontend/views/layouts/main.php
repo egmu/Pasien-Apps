@@ -39,7 +39,7 @@ use loutrux\argon\widgets\Alert;
     ['label' => 'Home', 'url' => ['/site/index']],
     ['label' => 'About', 'url' => ['/site/about']],
     ['label' => 'Poli', 'url' => ['/tb-poli/index']],
-    ['label' => 'Monitor', 'url' => ['/site/monitor']],
+    ['label' => 'Monitor', 'url' => ['/tb-antrian-now/index']],
     ['label' => 'Contact', 'url' => ['/site/contact']],
   ];
 

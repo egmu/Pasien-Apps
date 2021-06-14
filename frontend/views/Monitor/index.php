@@ -1,23 +1,19 @@
 <?php
-use yii\helpers\Url;
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-/* @var $this yii\web\View */
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Tb Polis';
+$this->title = 'Monitors';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="tb-poli-index">
+<div class="monitor-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-   <!--  <p>
-        <?= Html::a('Create Tb Poli', ['create'], ['class' => 'btn btn-success']) ?>
-    </p> -->
+   
 
 
     <?= GridView::widget([
@@ -25,9 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             // ['class' => 'yii\grid\SerialColumn'],
 
-            // 'id_poli',
-            'nama_poli',
-           
+            'id_antrian_now',
+            'nama',
 
             // ['class' => 'yii\grid\ActionColumn'],
         ],

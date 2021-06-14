@@ -16,6 +16,7 @@ use Yii;
  * @property string $status_antrian
  *
  * @property TbPasien $noRm
+ * @property TbPoli $poliTujuan
  */
 class TbAntrianPoli extends \yii\db\ActiveRecord
 {
@@ -35,9 +36,11 @@ class TbAntrianPoli extends \yii\db\ActiveRecord
         return [
             [['urutan', 'tgl_antrian', 'perkiraan_waktu', 'no_rm', 'status_antrian'], 'required'],
             [['urutan', 'no_rm'], 'integer'],
-            [['tgl_antrian', 'perkiraan_waktu', 'poli_tujuan'], 'safe'],
+            [['tgl_antrian', 'perkiraan_waktu'], 'safe'],
+            [['poli_tujuan'], 'string', 'max' => 36],
             [['status_antrian'], 'string', 'max' => 20],
             [['no_rm'], 'exist', 'skipOnError' => true, 'targetClass' => TbPasien::className(), 'targetAttribute' => ['no_rm' => 'no_rm']],
+            [['poli_tujuan'], 'exist', 'skipOnError' => true, 'targetClass' => TbPoli::className(), 'targetAttribute' => ['poli_tujuan' => 'nama_poli']],
         ];
     }
 
@@ -65,5 +68,15 @@ class TbAntrianPoli extends \yii\db\ActiveRecord
     public function getNoRm()
     {
         return $this->hasOne(TbPasien::className(), ['no_rm' => 'no_rm']);
+    }
+
+    /**
+     * Gets query for [[PoliTujuan]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPoliTujuan()
+    {
+        return $this->hasOne(TbPoli::className(), ['nama_poli' => 'poli_tujuan']);
     }
 }

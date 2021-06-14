@@ -56,7 +56,7 @@ $this->title = 'Dashboard';
                     </a>
                 </div>
             </div>
-             <div class="col-md-3 mb-3 m-2 shadow" style="border-radius: 100px">
+             <div class="col-md-3 mb-3 m-2 shadow" style="border-radius: 100px; box-shadow:100px">
                 <div class="row">
                     
                     <div class="col-md-5 bg-red align-self-center text-white rounded p-4">
@@ -90,11 +90,55 @@ $this->title = 'Dashboard';
             </div>
         </div>
         <div class="row justify-content-center">
+ <div class="col-md-5  m-3 shadow">
+            <h3 class="text-center">Antrian</h3>
 
+        <div class="table-responsive table-stripped shadow text-capitalize mt-5 p-3" style="background-color: #6f42c169;">
+      
+              
+            <table class="table">
+                <thead>
+                    <!--  <th>No</th>
+                    <th>Penyewa</th>
+                    <th>Tanggal Sewa</th>
+                    <th>Jaminan</th> -->
+                </thead>
+                <tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($dataNow as $item) { ?>
+                      
+                        <div class="row" style="box-shadow: 0 4px 8px 0 rgb(144, 237, 125);">
+                            <tr><?= Html::a($i, $item['id_antrian_now']) ?></tr><br>
+                            <tr>Umum: <?= $item['poli_umum'] ?></tr><br>
+                            <tr>Kista: <?= $item['poli_tb_kista'] ?></tr><br>
+                            <tr>KB: <?= $item['poli_kb'] ?></tr><br>
+                            <tr>Pendaftaran: <?= $item['locket_pendaftaran'] ?></tr><br>
+                            <tr>Gizi: <?= $item['poli_gigi'] ?></tr><br>
+                            <div style="transform: tr">
+                              <tr>Mts: <?= $item['poli_mtbs'] ?></tr><br>
+                            <tr>Jiwa: <?= $item['poli_jiwa'] ?></tr><br>
+                            <tr>Lansis: <?= $item['poli_lansis'] ?></tr><br>
+                            <tr>Imunisasi: <?= $item['imunisasi'] ?></tr><br>
+                            <tr>Pojok Gizi: <?= $item['pojok_gizi'] ?></tr><br>
+                              <tr>Senitasi: <?= $item['klinik_senitasi'] ?>
+                            </div>
+                              
+                              
+                            </tr>
+                            
+                        </div>
+                    <?php $i++; ?>
+                    <?php }?>
+                </tbody>
+            </table>
+       
+    </div>
     <div class="body-content">
 
-        <div class="row">
+        
             
+       
+
 
     </div>
 </div>

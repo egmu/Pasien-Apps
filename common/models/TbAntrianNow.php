@@ -22,6 +22,8 @@ use Yii;
  * @property int $laboratorium
  * @property int $pojok_gizi
  * @property int $klinik_senitasi
+ *
+ * @property Monitor $monitor
  */
 class TbAntrianNow extends \yii\db\ActiveRecord
 {
@@ -67,5 +69,15 @@ class TbAntrianNow extends \yii\db\ActiveRecord
             'pojok_gizi' => 'Pojok Gizi',
             'klinik_senitasi' => 'Klinik Senitasi',
         ];
+    }
+
+    /**
+     * Gets query for [[Monitor]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMonitor()
+    {
+        return $this->hasOne(Monitor::className(), ['id_antrian_now' => 'id_antrian_now']);
     }
 }

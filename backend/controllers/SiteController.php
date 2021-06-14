@@ -11,6 +11,7 @@ use yii\web\Response;
 use common\models\TbAdmin;
 use common\models\TbPoli;
 use common\models\TbPasien;
+
 use common\models\TbAntrianNow;
 use common\models\User;
 
@@ -78,17 +79,14 @@ class SiteController extends Controller
           $Pasien = TbPasien::find()->count();
            $Admin = TbAdmin::find()->count(); 
            $Admin2 = User::find()->count();
-
+            $dataNow = $now->offset($pages->offset)->limit($pages->limit)->orderBy(['id_antrian_now' => SORT_DESC])->all();
         return $this->render('index', [
             'Poli' => $Poli,
             'Pasien' => $Pasien,
             'Admin' => $Admin,
             'Admin2' => $Admin2,
-            // 'dataNow' => $now,
-            
-
-
-            
+            'dataNow' => $dataNow,
+            // 'dataNow' => $now            
         ]);
     }
 

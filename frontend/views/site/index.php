@@ -11,14 +11,14 @@ $this->title = 'Home';
 
     <div class="jumbotron text-center bg-transparent">
 
-        <h1 class="display-4">Puskesmas Citra Indah!</h1>
+        <h1 class="display-4">Puskesmas <?= Yii::$app->name  ?></h1>
 
         <p class="lead">Selamat datang  </p>
+        <p>Kesehatan anda adalah Kebahagiaan Keluarga</p>
 
         
     </div>
-    <h2><?= Html::img('@frontend/web/puskesmas.jpg', ['alt'=>'some', 'class'=>'thing']);?>
-</h2>
+    
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -46,6 +46,32 @@ $this->title = 'Home';
   width: 100%;
   height: auto;
 }
+ @media (min-width:356px) {
+      .card-columns {
+        column-count: 6;
+      }
+  }
+
+  @media (min-width:576px) {
+      .card-columns {
+        column-count: 6;
+      }
+  }
+    @media (min-width:768px) {
+      .card-columns {
+        column-count: 6;
+      }
+  }
+  @media (min-width:992px) {
+      .card-columns {
+        column-count: 4;
+      }
+  }
+  @media (min-width:1200px) {
+      .card-columns {
+        column-count: 6;
+      }
+  }
       .container1 {
         width: 1080px;
         position: relative;
@@ -157,8 +183,10 @@ $this->title = 'Home';
         color: #fff;
         border: 1px solid #212121;
       }
+
     </style>
   </head>
+
   <body>
     
     <div class="container1">
@@ -208,32 +236,15 @@ $this->title = 'Home';
       <div class="card card-style-3">
         <div class="card-content card-header">
           <div class="content" >
-            <img src="2416632-internet-of-things/svg/008-cloud.svg" alt="" />
-            <h3>Poli</h3>
+           <img src="2416632-internet-of-things/svg/008-cloud.svg" alt="" />
+            <h3>Sejarah</h3></h3>
           </div>
         </div>
         <div class="card-content card-body">
           <div class="content">
-            <p>
-           
-        <div class="col-md-5  m-3 shadow">
-            
-            <table class="table">
-                                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($dataPoli as $item) { ?>
-                       
-
-                        <div class="row" style="box-shadow: 0 4px 8px 0 rgb(144, 237, 125);">
-                            <tr><?= Html::a($i, $item['id_poli']) ?></tr><br>
-                            <tr>Isi: <?= $item['nama_poli'] ?></tr><br>
-                           
-                            
-                        </div>
-                    <?php $i++; ?>
-                    <?php }?>
-                </tbody>
-            </table>
+             <p>
+            Puskesmas Citra Indah berdiri pada tahun 2021, dengan Moto "Keindahan adalah Tubuh Sehat"
+            </p>
         </div>
     </div>
             
@@ -241,8 +252,77 @@ $this->title = 'Home';
         </div>
       </div>
        
+<a href="https://www.qries.com/">
+         <img alt="Qries" src="https://www.qries.com/images/banner_logo.png"
+         width="150" height="70">
+      </a>
+    <div class="col-md-5  m-3 shadow" style="position: center">
+            <h3 class="text-center">Antrian</h3>
 
-    
+        <div class="table-responsive table-stripped shadow text-capitalize mt-5 p-3" style="background-color: #06ee2ac4;">
+      
+              
+            <table class="table">
+               
+                <tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($dataNow as $item) { ?>
+                      
+                        <div class="row" style="box-shadow: 0 4px 8px 0 rgb(144, 237, 125);">
+                            <tr><?= Html::a($i, $item['id_antrian_now']) ?></tr><br>
+                            <tr>Umum: <?= $item['poli_umum'] ?></tr><br>
+                            <tr>Kista: <?= $item['poli_tb_kista'] ?></tr><br>
+                            <tr>KB: <?= $item['poli_kb'] ?></tr><br>
+                            <tr>Pendaftaran: <?= $item['locket_pendaftaran'] ?></tr><br>
+                            <tr>Gizi: <?= $item['poli_gigi'] ?></tr><br>
+                            <div style="transform: tr">
+                              <tr>Mts: <?= $item['poli_mtbs'] ?></tr><br>
+                            <tr>Jiwa: <?= $item['poli_jiwa'] ?></tr><br>
+                            <tr>Lansis: <?= $item['poli_lansis'] ?></tr><br>
+                            <tr>Imunisasi: <?= $item['imunisasi'] ?></tr><br>
+                            <tr>Pojok Gizi: <?= $item['pojok_gizi'] ?></tr><br>
+                              <tr>Senitasi: <?= $item['klinik_senitasi'] ?>
+                            </div>
+                              
+                              
+                            </tr>
+                            
+                        </div>
+                    <?php $i++; ?>
+                    <?php }?>
+                </tbody>
+            </table>
+       </div>
+    </div>
+     <div class="col-md-5  m-4 shadow" style="position: center">
+            <h3 class="text-center">Antrian</h3>
+
+        <div class="table-responsive table-stripped shadow text-capitalize mt-5 p-3" style="background-color: #1bc4df69;">
+      
+              
+            <table class="table">
+               
+                <tbody>
+                    
+                    <?php foreach ($dataNow1 as $item) { ?>
+                      
+                        <div class="row" style="box-shadow: 0 4px 8px 0 rgb(144, 237, 125);">
+                            <!-- tr><?= Html::a($i, $item['id_poli']) ?></tr><br -->
+                            <tr><?= $item['nama_poli'] ?></tr><br>
+                           
+                            </div>
+                              
+                              
+                            </tr>
+                            
+                        </div>
+                    
+                    <?php }?>
+                </tbody>
+            </table>
+       </div>
+    </div>
+
 <!--                       <div class="card card-style-3">
                         <div class="card-content card-header">
                           <div class="content">
@@ -266,7 +346,8 @@ $this->title = 'Home';
 </html>
     <div class="body-content">
 
-       
+        
 
     </div>
+
 </div>

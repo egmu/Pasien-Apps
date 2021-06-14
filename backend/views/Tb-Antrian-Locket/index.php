@@ -28,8 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'tgl_antrian',
             'no_rm',
             'perkiraan_waktu',
-            //'status_pasien',
-            //'poli_id',
+            'status_pasien',
+            'poli_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
