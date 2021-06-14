@@ -27,9 +27,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'urutan',
             'tgl_antrian',
             'no_rm',
-            'poli_tujuan',
-            //'perkiraan_waktu',
+            'perkiraan_waktu',
             //'status_pasien',
+            //'poli_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'tgl_antrian')->textInput() ?>
+    <?= $form->field($model, 'tgl_antrian')->textInput(['type' => 'date']) ?>
 
     <?= $form->field($model, 'locket_pendaftaran')->textInput() ?>
 

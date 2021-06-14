@@ -10,5 +10,5 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
-    'name' => 'Puskesmas'
+    'name' => 'Citra Indah'
 ];

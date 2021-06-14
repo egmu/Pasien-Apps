@@ -13,6 +13,11 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use common\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\TbAdmin;
+use common\models\TbPoli;
+use common\models\TbPasien;
+use common\models\TbAntrianNow;
+use common\models\User;
 /**
  * Site controller
  */
@@ -70,8 +75,30 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+         $now = TbAntrianNow::find();
+         $poli = TbPoli::find()->count();
+        $pages = new \yii\data\Pagination([
+            'totalCount' => $now->count(),
+            'pageSize' => 4
+        ]);
+
+        // $dataNow = $now->offset($pages->offset)->limit($pages->limit)->orderBy(['locket_pendaftaran' => SORT_DESC])->all();
+         $dataPoli = $poli->limit($pages->limit)->orderBy(['id_poli' => SORT_DESC])->all();
+
+       
+          $Pasien = TbPasien::find()->count();
+           $Admin = TbAdmin::find()->count(); 
+           $Admin2 = User::find()->count();
+
+        return $this->render('index', [
+            'poli' => $poli,
+            'Pasien' => $Pasien,
+            'Admin' => $Admin,
+            'Admin2' => $Admin2,
+             'dataPoli' => $poli,
+       ]);
     }
+    public  $Poli;
     /**
      * Logs in a user.
      *
@@ -125,6 +152,10 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+    public function getImageurl()
+    {
+      return \Yii::getAlias('@imageurl').'/'.$this->picture;
     }
     /**
      * Displays about page.
@@ -238,5 +269,10 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+    public function actionMonitor()
+    {
+        
+       return $this->render('monitor');
     }
 }

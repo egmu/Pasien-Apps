@@ -12,9 +12,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'tgl_periksa')->textInput() ?>
+    <?= $form->field($model, 'tgl_periksa')->textInput(['type' => 'date']) ?>
 
-    <?= $form->field($model, 'no_rm')->textInput() ?>
+
+    <?= $form->field($model, 'no_rm')->textInput(['type' => 'number']) ?>
+
 
     <?= $form->field($model, 'anamnesa')->textInput(['maxlength' => true]) ?>
 

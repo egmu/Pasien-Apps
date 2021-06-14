@@ -11,12 +11,9 @@ use Yii;
  * @property int $urutan
  * @property string $tgl_antrian
  * @property int $no_rm
- * @property string $poli_tujuan
  * @property string $perkiraan_waktu
  * @property string $status_pasien
- *
- * @property TbPasien $noRm
- * @property TbPoli $poliTujuan
+ * @property int $poli_id
  */
 class TbAntrianLocket extends \yii\db\ActiveRecord
 {
@@ -34,15 +31,10 @@ class TbAntrianLocket extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['urutan', 'tgl_antrian', 'no_rm', 'poli_tujuan', 'perkiraan_waktu', 'status_pasien'], 'required'],
-            [['urutan', 'no_rm'], 'integer'],
+            [['urutan', 'tgl_antrian', 'no_rm', 'perkiraan_waktu', 'status_pasien', 'poli_id'], 'required'],
+            [['urutan', 'no_rm', 'poli_id'], 'integer'],
             [['tgl_antrian', 'perkiraan_waktu'], 'safe'],
-            [['poli_tujuan'], 'string', 'max' => 25],
             [['status_pasien'], 'string', 'max' => 20],
-            [['urutan'], 'unique'],
-            [['poli_tujuan'], 'unique'],
-            [['no_rm'], 'exist', 'skipOnError' => true, 'targetClass' => TbPasien::className(), 'targetAttribute' => ['no_rm' => 'no_rm']],
-            [['poli_tujuan'], 'exist', 'skipOnError' => true, 'targetClass' => TbPoli::className(), 'targetAttribute' => ['poli_tujuan' => 'nama_poli']],
         ];
     }
 
@@ -56,29 +48,9 @@ class TbAntrianLocket extends \yii\db\ActiveRecord
             'urutan' => 'Urutan',
             'tgl_antrian' => 'Tgl Antrian',
             'no_rm' => 'No Rm',
-            'poli_tujuan' => 'Poli Tujuan',
             'perkiraan_waktu' => 'Perkiraan Waktu',
             'status_pasien' => 'Status Pasien',
+            'poli_id' => 'Poli ID',
         ];
-    }
-
-    /**
-     * Gets query for [[NoRm]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getNoRm()
-    {
-        return $this->hasOne(TbPasien::className(), ['no_rm' => 'no_rm']);
-    }
-
-    /**
-     * Gets query for [[PoliTujuan]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPoliTujuan()
-    {
-        return $this->hasOne(TbPoli::className(), ['nama_poli' => 'poli_tujuan']);
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a324291d26105bbc2e9b85ebe1f646ee",
+    "content-hash": "164938d54527dd6f64bb2513f5296328",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -523,6 +523,60 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/master"
             },
             "time": "2020-06-29T00:56:53+00:00"
+        },
+        {
+            "name": "loutrux/yii2-argon-dashboard",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/loutrux/yii2-argon-dashboard.git",
+                "reference": "6df1c4e44da85fbc860ec4529a7d9a2e6b16dfb8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/loutrux/yii2-argon-dashboard/zipball/6df1c4e44da85fbc860ec4529a7d9a2e6b16dfb8",
+                "reference": "6df1c4e44da85fbc860ec4529a7d9a2e6b16dfb8",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "2.*",
+                "yiisoft/yii2-bootstrap": "2.*"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "loutrux\\argon\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Loutrux",
+                    "email": "loutrux@gmail.com"
+                }
+            ],
+            "description": "Argon dashboard backend theme asset bundle for Yii 2.0 Framework",
+            "keywords": [
+                "Argon",
+                "admin",
+                "asset",
+                "backend",
+                "css",
+                "dashboard",
+                "extension",
+                "less",
+                "theme",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/loutrux/yii2-argon-dashboard/issues",
+                "source": "https://github.com/loutrux/yii2-argon-dashboard/tree/master"
+            },
+            "time": "2019-11-25T10:15:09+00:00"
         },
         {
             "name": "npm-asset/bootstrap",
@@ -4242,12 +4296,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "dddfffb46af6beb76e0fb00a589834f122b0a089"
+                "reference": "4411daa706a497da39b56619c0b2dbbe42b1fba3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/dddfffb46af6beb76e0fb00a589834f122b0a089",
-                "reference": "dddfffb46af6beb76e0fb00a589834f122b0a089",
+                "url": "https://api.github.com/repos/symfony/console/zipball/4411daa706a497da39b56619c0b2dbbe42b1fba3",
+                "reference": "4411daa706a497da39b56619c0b2dbbe42b1fba3",
                 "shasum": ""
             },
             "require": {
@@ -4332,7 +4386,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-06T09:52:30+00:00"
+            "time": "2021-06-12T10:16:15+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -5785,7 +5839,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "loutrux/yii2-argon-dashboard": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -33,9 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'urutan',
             'tgl_antrian',
             'no_rm',
-            'poli_tujuan',
             'perkiraan_waktu',
             'status_pasien',
+            'poli_id',
         ],
     ]) ?>
 

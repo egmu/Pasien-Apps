@@ -63,7 +63,7 @@
                            ['label' => 'Info Kategori',  'icon' => 'user', 'url' => ['tb-info-kategori/index']],
                             ['label' => 'Id Kategori',  'icon' => 'user', 'url' => ['id-kategori/index']],
                            ['label' => 'Daftar Kategori',  'icon' => 'archive', 'url' => ['tb-daftar-kategori/index']],
-                             ['label' => 'Info',  'icon' => 'user', 'url' => ['tb-info-kategori/index']],
+                             ['label' => 'Info',  'icon' => 'user', 'url' => ['tb-info/index']],
                         ]
                     ],
                     ['label' => 'Logout',  'icon' => 'user',  'url' => ['site/logout']],
